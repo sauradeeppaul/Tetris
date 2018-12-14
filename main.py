@@ -1,6 +1,7 @@
 import pygame
 import random
 from shapes import blocks, block_colors
+from dimensions import *
 
 # creating the data structure for pieces
 # setting up global vars
@@ -18,15 +19,6 @@ shapes: S, Z, I, O, J, L, T
 
 pygame.font.init()
 
-#Dimensions
-window_width = 800
-window_height = 700
-play_zone_width = 300  # 300 // 10 = 30 width per block
-play_zone_height = 600  # 600 // 20 = 30 height per block
-block_size = 30
-
-top_left_x = (window_width - play_zone_width) // 2
-top_left_y = window_height - play_zone_height
 
 
 class Piece(object):
@@ -62,9 +54,11 @@ def draw_grid(surface, row, col):
 
 
 def clear_rows(grid, locked):
+    pass
 
 
 def draw_next_shape(shape, surface):
+    pass
 
 
 def draw_window(surface):
