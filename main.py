@@ -1,5 +1,4 @@
 import pygame
-import random
 from shapes import *
 from dimensions import *
 from game_strings import *
@@ -22,14 +21,6 @@ shapes: S, Z, I, O, J, L, T
 pygame.font.init()
 
 
-
-class Piece(object):
-    def __init__(self, x, y, shape):
-        self.x = x
-        self.y = y
-        self.shape = shape
-        self.color = block_colors[blocks.index(shape)]
-        self.rotation = 0
 
 
 def create_grid(locked_positions={}):
@@ -98,11 +89,48 @@ def draw_window(surface, grid):
 
 
 def main():
-    pass
+    locked_positions = {}
+    grid = create_grid(locked_positions)
+
+    change_piece = False
+    run = True
+    current_piece = get_shape()
+    next_piece = get_shape()
+
+    clock = pygame.time.Clock()
+
+    fall_time = 0
+
+    while run:
+        for event in pygame.event.get():
+            if event == pygame.QUIT:
+                run = False
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    current_piece.x -= 1
+                    if not valid_space(current_piece, grid):
+                        current_piece.x += 1
+                if event.key == pygame.K_RIGHT:
+                    current_piece.x += 1
+                    if not valid_space(current_piece, grid):
+                        current_piece.x -= 1
+                if event.key == pygame.K_DOWN:
+                    current_piece.y += 1
+                    if not valid_space(current_piece, grid):
+                        current_piece.y -= 1
+                if event.key == pygame.K_UP:
+                    current_piece.rotation += 1
+                    if not valid_space(current_piece, grid):
+                        current_piece.rotation -= 1
+
+        draw_window(surface, grid)
 
 
 def main_menu():
     pass
 
 
-main_menu()  # start game
+win = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+pygame.display.set_caption(game_name)
+main_menu()

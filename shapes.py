@@ -1,4 +1,14 @@
 import random
+from dimensions import *
+
+class Piece(object):
+    def __init__(self, x, y, shape):
+        self.x = x
+        self.y = y
+        self.shape = shape
+        self.color = block_colors[blocks.index(shape)]
+        self.rotation = 0
+
 
 S = [['.....',
       '......',
@@ -107,5 +117,5 @@ block_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 16
 
 
 def get_shape():
-    return random.choice(blocks)
+    return Piece((PLAYZONE_WIDTH/BLOCK_SIZE)/2, 0, random.choice(blocks))
 
