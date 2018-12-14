@@ -30,12 +30,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1815" />
+          <entry key="py" value="2108" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1815" />
+          <entry key="Python" value="2108" />
         </counts>
       </usages-collector>
     </session>
@@ -45,12 +45,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="124" column="48" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
+            <state relative-caret-position="231">
+              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1544824988199" expanded="true" signature="1438:1450" ph="..." />
-                <marker date="1544824988199" expanded="true" signature="1486:1498" ph="..." />
+                <marker date="1544826026788" expanded="true" signature="1003:1208" ph="..." />
+                <marker date="1544826026788" expanded="true" signature="1237:1249" ph="..." />
+                <marker date="1544826026788" expanded="true" signature="1285:1297" ph="..." />
               </folding>
             </state>
           </provider>
@@ -59,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/colors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -68,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game_strings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="19" selection-start-column="19" selection-end-column="19" />
+            <state relative-caret-position="17">
+              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -111,10 +112,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/venv/shapes.py" />
-        <option value="$PROJECT_DIR$/game_strings.py" />
         <option value="$PROJECT_DIR$/dimensions.py" />
-        <option value="$PROJECT_DIR$/colors.py" />
         <option value="$PROJECT_DIR$/shapes.py" />
+        <option value="$PROJECT_DIR$/game_strings.py" />
+        <option value="$PROJECT_DIR$/colors.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -229,20 +230,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/shapes.py" />
-    <entry file="file://$PROJECT_DIR$/game_strings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/colors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dimensions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -260,14 +247,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/game_strings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/colors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="124" column="48" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
+        <state relative-caret-position="231">
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1544824988199" expanded="true" signature="1438:1450" ph="..." />
-            <marker date="1544824988199" expanded="true" signature="1486:1498" ph="..." />
+            <marker date="1544826026788" expanded="true" signature="1003:1208" ph="..." />
+            <marker date="1544826026788" expanded="true" signature="1237:1249" ph="..." />
+            <marker date="1544826026788" expanded="true" signature="1285:1297" ph="..." />
           </folding>
         </state>
       </provider>

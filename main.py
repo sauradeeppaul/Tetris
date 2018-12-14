@@ -57,14 +57,14 @@ def draw_text_middle(text, size, color, surface):
 
 
 def draw_grid(surface, grid):
-    for i in range(len(grid)):
-        for j in range(len(grid)):
-            pygame.draw.rect(surface,
-                             grid[i][j],
-                             (TOP_LEFT_X + j*BLOCK_SIZE, TOP_LEFT_Y + i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE),
-                             0)
+    X = TOP_LEFT_X
+    Y = TOP_LEFT_Y
 
-    pygame.draw.rect(surface, BORDER_COLOR, (TOP_LEFT_X, TOP_LEFT_Y, PLAYZONE_WIDTH, PLAYZONE_HEIGHT), BORDER_SIZE)
+    for i in range(len(grid)):
+        pygame.draw.line(surface, GRID_COLOR, (X, Y + i*BLOCK_SIZE), (X + PLAYZONE_WIDTH, Y + i*BLOCK_SIZE))
+
+    for i in range(len(grid[0])):
+        pygame.draw.line(surface, GRID_COLOR, (X + i*BLOCK_SIZE, Y), (X + i*BLOCK_SIZE, Y + PLAYZONE_HEIGHT))
 
 
 def clear_rows(grid, locked):
@@ -84,11 +84,20 @@ def draw_window(surface, grid):
 
     surface.blit(title, TOP_LEFT_X + (WINDOW_WIDTH - title.get_width())/2, TITLE_PADDING_Y)
 
-    draw_window(surface, grid)
+    for i in range(len(grid)):
+        for j in range(len(grid)):
+            pygame.draw.rect(surface,
+                             grid[i][j],
+                             (TOP_LEFT_X + j*BLOCK_SIZE, TOP_LEFT_Y + i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE),
+                             0)
+
+    pygame.draw.rect(surface, BORDER_COLOR, (TOP_LEFT_X, TOP_LEFT_Y, PLAYZONE_WIDTH, PLAYZONE_HEIGHT), BORDER_SIZE)
+
+    draw_grid(surface, grid)
     pygame.display.update()
 
 
-def main():
+def main(surface):
     locked_positions = {}
     grid = create_grid(locked_positions)
 
@@ -127,10 +136,10 @@ def main():
         draw_window(surface, grid)
 
 
-def main_menu():
-    pass
+def main_menu(win):
+    main(win)
 
 
 win = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption(GAME_NAME)
-main_menu()
+main_menu(win)
