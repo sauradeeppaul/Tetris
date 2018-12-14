@@ -1,2 +1,2 @@
-game_name = 'Tetris'
-game_font = 'arial'
+GAME_NAME = 'Tetris'
+GAME_FONT = 'arial'

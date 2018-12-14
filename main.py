@@ -79,8 +79,8 @@ def draw_window(surface, grid):
     surface.fill(BACKGROUND_COLOR)
 
     pygame.font.init()
-    font = pygame.font.SysFont(game_font, 60)
-    title = font.render(game_name, 1, TITLE_COLOR)
+    font = pygame.font.SysFont(GAME_FONT, 60)
+    title = font.render(GAME_NAME, 1, TITLE_COLOR)
 
     surface.blit(title, TOP_LEFT_X + (WINDOW_WIDTH - title.get_width())/2, TITLE_PADDING_Y)
 
@@ -132,5 +132,5 @@ def main_menu():
 
 
 win = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-pygame.display.set_caption(game_name)
+pygame.display.set_caption(GAME_NAME)
 main_menu()
