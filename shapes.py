@@ -117,5 +117,6 @@ block_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 16
 
 
 def get_shape():
-    return Piece((PLAYZONE_WIDTH/BLOCK_SIZE)/2, 0, random.choice(blocks))
+    piece = random.choice(blocks)
+    return Piece((PLAYZONE_WIDTH/BLOCK_SIZE)/2, 0, piece)
 

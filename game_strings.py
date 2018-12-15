@@ -1,2 +1,3 @@
-GAME_NAME = 'Tetris'
-GAME_FONT = 'arial'
+TEXT_GAME_NAME = 'Tetris'
+TEXT_GAME_FONT = 'arial'
+TEXT_NEXT_SHAPE = 'NEXT'
