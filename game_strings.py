@@ -1,3 +1,4 @@
 TEXT_GAME_NAME = 'Tetris'
 TEXT_GAME_FONT = 'arial'
 TEXT_NEXT_SHAPE = 'NEXT'
+TEXT_SCORE = 'Score: '

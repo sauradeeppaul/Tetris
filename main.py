@@ -78,7 +78,7 @@ def check_lost(positions):
 
 
 def draw_text_middle(text, size, color, surface):
-    pass
+    font = pygame.font.SysFont(TEXT_GAME_FONT, size, bold=True)
 
 
 def draw_grid(surface, grid):
@@ -94,7 +94,30 @@ def draw_grid(surface, grid):
 
 
 def clear_rows(grid, locked):
-    pass
+    clear = 0
+
+    for i in range(len(grid) - 1, -1, -1):
+        row = grid[i]
+
+        if PLAYZONE_COLOR not in row:
+            clear += 1
+            removed_index = i
+            for j in range(len(row)):
+                try:
+                    del locked[(j, i)]
+                except:
+                    continue
+
+    if clear > 0:
+        for pos in sorted(list(locked), key=lambda x: x[1])[::-1]:
+            x, y = pos
+            if y < removed_index:
+                new_pos = (x, y + clear)
+                locked[new_pos] = locked.pop(pos)
+
+    return clear
+
+
 
 
 def draw_next_shape(piece, surface):
@@ -115,7 +138,7 @@ def draw_next_shape(piece, surface):
     surface.blit(text, (X + NEXT_POS_X, Y + NEXT_POS_Y))
 
 
-def draw_window(surface, grid):
+def draw_window(surface, grid, score=0):
     surface.fill(BACKGROUND_COLOR)
 
     pygame.font.init()
@@ -123,6 +146,14 @@ def draw_window(surface, grid):
     title = font.render(TEXT_GAME_NAME, 1, TITLE_COLOR)
 
     surface.blit(title, (TOP_LEFT_X + (PLAYZONE_WIDTH - title.get_width())/2, TITLE_PADDING_Y))
+
+    font = pygame.font.SysFont(TEXT_GAME_FONT, 30)
+    text = font.render(TEXT_SCORE + str(score), 1, TITLE_COLOR)
+
+    X = TOP_LEFT_X + PLAYZONE_WIDTH
+    Y = TOP_LEFT_Y + PLAYZONE_HEIGHT / 2
+
+    surface.blit(text, (X + 10, Y + 80))
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
@@ -149,11 +180,20 @@ def main(surface):
 
     fall_time = 0
     fall_speed = FALL_SPEED
+    current_time = 0
+
+    score = 0
 
     while run:
         grid = create_grid(locked_positions)
         fall_time += clock.get_rawtime()
+        current_time += clock.get_rawtime()
         clock.tick()
+
+        if current_time/1000 > SPEED_CHANGE:
+            current_time = 0
+            if fall_speed > 0.12:
+                current_time -= SPEED_REDUCTION
 
         if fall_time/1000 > fall_speed:
             fall_time = 0
@@ -197,8 +237,9 @@ def main(surface):
             current_piece = next_piece
             next_piece = get_shape()
             change_piece = False
+            score += clear_rows(grid, locked_positions) * SCORE_MULTIPLIER
 
-        draw_window(surface, grid)
+        draw_window(surface, grid, score)
         draw_next_shape(next_piece, surface)
 
         pygame.display.update()
